@@ -340,6 +340,8 @@ body {
     animation: spongeDeform 0.6s ease-in-out;
 }
 
+/* Sound Controls removed */
+
 /* Realistic water drop animation */
 @keyframes waterDrop {
     0% {

@@ -272,9 +272,6 @@ class InteractiveElements {
                         this.createWaterDrop(spongeBtn, e);
                     }, i * 50);
                 }
-                
-                // Add squeeze sound effect (optional)
-                this.playSqueezeSound();
             });
             
             spongeBtn.addEventListener('mouseenter', () => {
@@ -335,29 +332,7 @@ class InteractiveElements {
         }, 1200);
     }
     
-    playSqueezeSound() {
-        // Create a simple squeeze sound using Web Audio API
-        try {
-            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
-            
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
-            
-            oscillator.frequency.setValueAtTime(200, audioContext.currentTime);
-            oscillator.frequency.exponentialRampToValueAtTime(50, audioContext.currentTime + 0.1);
-            
-            gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
-            
-            oscillator.start(audioContext.currentTime);
-            oscillator.stop(audioContext.currentTime + 0.1);
-        } catch (e) {
-            // Fallback if audio context is not available
-            console.log('Squeeze!');
-        }
-    }
+    // Sound functions removed
     
     addFloatingIconInteractions() {
         const icons = document.querySelectorAll('.floating-icon');
@@ -460,6 +435,8 @@ window.scrollToSection = function(sectionId) {
         });
     }
 };
+
+// Sound removed
 
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
