@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meow and I cooking</title>
+    <link rel="icon" type="image/svg+xml" href="MAIC-removebg.png">
+    <link rel="icon" type="image/png" href="MAIC-removebg.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <!-- <nav class="navbar">
+            <div class="nav-brand">🐱 MAIC</div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#tokenomics" class="nav-link">Tokenomics</a>
+            </div>
+        </nav> -->
+
+        <!-- Hero Section with 3D Elements -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="gradient-text">Meow and I cooking</span>
+                        <br><span class="meme-text">$MAIC Memes</span> <br><span class="great-text">Great Again</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        The real Meow and I cooking, we are really cooking. </br>
+                        <span class="highlight">Join the revolution!</span>
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="window.open('https://jup.ag/tokens/Bg422kWRLrArkAMnGDZv3GTmYDrFKhuC2MGzSoxxjups', '_blank')">
+                            <span class="btn-text">Start Trading</span>
+                            <!-- <span class="btn-icon">🚀</span> -->
+                        </button>
+                        <!-- <button class="btn btn-secondary" onclick="scrollToSection('about')">
+                            <span class="btn-text">Learn More</span>
+                            <span class="btn-icon">📖</span>
+                        </button> -->
+                    </div>
+                    <!-- <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="1000">0</span>
+                            <span class="stat-label">Holders</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="50000">0</span>
+                            <span class="stat-label">Market Cap</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="100">0</span>
+                            <span class="stat-label">Days</span>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="hero-visual">
+                    <div class="cat-container">
+                        <div class="cat-card">
+                            <img src="MAIC-removebg.png" alt="Coder Cat" class="cat-image">
+                            <div class="cat-glow"></div>
+                        </div>
+                        <!-- <div class="floating-elements">
+                            <div class="floating-icon" data-tooltip="Trading">💻</div>
+                            <div class="floating-icon" data-tooltip="Coffee">☕</div>
+                            <div class="floating-icon" data-tooltip="Mobile">📱</div>
+                            <div class="floating-icon" data-tooltip="Lightning">⚡</div>
+                            <div class="floating-icon" data-tooltip="Moon">🌙</div>
+                            <div class="floating-icon" data-tooltip="Diamond">💎</div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="section-content">
+                <h2 class="section-title">About $MAIC</h2>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div class="card-icon">🐱</div>
+                        <h3>Meow Power</h3>
+                        <p>Built by cats, for cats, and everyone who loves memes!</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="card-icon">🚀</div>
+                        <h3>To The Moon</h3>
+                        <p>We're not just cooking, we're launching to the stars!</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="card-icon">💎</div>
+                        <h3>Diamond Paws</h3>
+                        <p>Strong community with diamond hands and diamond paws.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tokenomics Section -->
+        <section id="tokenomics" class="tokenomics-section">
+            <div class="section-content">
+                <h2 class="section-title">Tokenomics</h2>
+                <div class="tokenomics-grid">
+                    <div class="tokenomics-card">
+                        <div class="tokenomics-circle">
+                            <span class="percentage">40%</span>
+                        </div>
+                        <h3>Liquidity</h3>
+                        <p>Locked for stability</p>
+                    </div>
+                    <div class="tokenomics-card">
+                        <div class="tokenomics-circle">
+                            <span class="percentage">30%</span>
+                        </div>
+                        <h3>Community</h3>
+                        <p>For the holders</p>
+                    </div>
+                    <div class="tokenomics-card">
+                        <div class="tokenomics-circle">
+                            <span class="percentage">20%</span>
+                        </div>
+                        <h3>Marketing</h3>
+                        <p>Growth & awareness</p>
+                    </div>
+                    <div class="tokenomics-card">
+                        <div class="tokenomics-circle">
+                            <span class="percentage">10%</span>
+                        </div>
+                        <h3>Team</h3>
+                        <p>Development</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Mouse Follower -->
+    <div class="mouse-follower"></div>
+
+    <!-- 3D Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html> 

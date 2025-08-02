@@ -1,0 +1,88 @@
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="catGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FF6B6B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4ECDC4;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="300" height="300" fill="url(#catGradient)" opacity="0.1"/>
+  
+  <!-- Cat Body -->
+  <ellipse cx="150" cy="180" rx="60" ry="40" fill="#FFD700" stroke="#333" stroke-width="2"/>
+  
+  <!-- Cat Head -->
+  <circle cx="150" cy="120" r="45" fill="#FFD700" stroke="#333" stroke-width="2"/>
+  
+  <!-- Cat Ears -->
+  <polygon points="120,90 110,70 130,85" fill="#FF6B6B" stroke="#333" stroke-width="2"/>
+  <polygon points="180,90 190,70 170,85" fill="#FF6B6B" stroke="#333" stroke-width="2"/>
+  
+  <!-- Cat Eyes -->
+  <circle cx="135" cy="115" r="8" fill="#333"/>
+  <circle cx="165" cy="115" r="8" fill="#333"/>
+  <circle cx="137" cy="113" r="3" fill="white"/>
+  <circle cx="167" cy="113" r="3" fill="white"/>
+  
+  <!-- Cat Nose -->
+  <polygon points="150,125 145,130 155,130" fill="#FF6B6B"/>
+  
+  <!-- Cat Mouth -->
+  <path d="M 145 135 Q 150 140 155 135" stroke="#333" stroke-width="2" fill="none"/>
+  
+  <!-- Hoodie -->
+  <ellipse cx="150" cy="120" rx="50" ry="55" fill="#4ECDC4" stroke="#333" stroke-width="2" opacity="0.8"/>
+  <rect x="100" y="120" width="100" height="80" fill="#4ECDC4" stroke="#333" stroke-width="2" opacity="0.8"/>
+  
+  <!-- Hoodie Hood -->
+  <path d="M 100 120 Q 150 80 200 120" fill="#4ECDC4" stroke="#333" stroke-width="2" opacity="0.8"/>
+  
+  <!-- Glasses -->
+  <circle cx="135" cy="115" r="12" fill="none" stroke="#333" stroke-width="3"/>
+  <circle cx="165" cy="115" r="12" fill="none" stroke="#333" stroke-width="3"/>
+  <line x1="147" y1="115" x2="153" y2="115" stroke="#333" stroke-width="3"/>
+  
+  <!-- Laptop -->
+  <rect x="80" y="200" width="140" height="80" fill="#666" stroke="#333" stroke-width="2"/>
+  <rect x="85" y="205" width="130" height="70" fill="#4ECDC4"/>
+  <rect x="90" y="210" width="120" height="60" fill="#333"/>
+  
+  <!-- Code on Screen -->
+  <text x="95" y="225" fill="#00FF00" font-family="monospace" font-size="8">function catCode() {</text>
+  <text x="100" y="235" fill="#00FF00" font-family="monospace" font-size="8">  return "meow";</text>
+  <text x="95" y="245" fill="#00FF00" font-family="monospace" font-size="8">}</text>
+  
+  <!-- Coffee Cup -->
+  <ellipse cx="220" cy="220" rx="15" ry="20" fill="white" stroke="#333" stroke-width="2"/>
+  <rect x="210" y="200" width="20" height="40" fill="white" stroke="#333" stroke-width="2"/>
+  <ellipse cx="220" cy="200" rx="10" ry="5" fill="#8B4513"/>
+  
+  <!-- Steam -->
+  <path d="M 215 195 Q 220 190 225 195" stroke="#FFF" stroke-width="2" fill="none"/>
+  <path d="M 220 195 Q 225 190 230 195" stroke="#FFF" stroke-width="2" fill="none"/>
+  
+  <!-- Phone -->
+  <rect x="200" y="180" width="25" height="35" fill="#333" stroke="#666" stroke-width="1"/>
+  <rect x="202" y="182" width="21" height="31" fill="#4ECDC4"/>
+  
+  <!-- Floating Icons -->
+  <text x="50" y="80" font-size="20" filter="url(#glow)">💻</text>
+  <text x="250" y="100" font-size="20" filter="url(#glow)">☕</text>
+  <text x="60" y="250" font-size="20" filter="url(#glow)">📱</text>
+  <text x="240" y="150" font-size="20" filter="url(#glow)">⚡</text>
+  
+  <!-- Cat Paws on Keyboard -->
+  <ellipse cx="120" cy="270" rx="8" ry="5" fill="#FFD700" stroke="#333" stroke-width="1"/>
+  <ellipse cx="140" cy="270" rx="8" ry="5" fill="#FFD700" stroke="#333" stroke-width="1"/>
+  <ellipse cx="160" cy="270" rx="8" ry="5" fill="#FFD700" stroke="#333" stroke-width="1"/>
+  <ellipse cx="180" cy="270" rx="8" ry="5" fill="#FFD700" stroke="#333" stroke-width="1"/>
+</svg> 
