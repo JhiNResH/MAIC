@@ -259,6 +259,104 @@ class InteractiveElements {
                 }, 600);
             });
         });
+        
+        // Realistic sponge squeeze effect
+        const spongeBtn = document.querySelector('.sponge-button');
+        if (spongeBtn) {
+            const waterDrops = spongeBtn.querySelector('.water-drops');
+            
+            spongeBtn.addEventListener('mousedown', (e) => {
+                // Create multiple water drops on press
+                for (let i = 0; i < 5; i++) {
+                    setTimeout(() => {
+                        this.createWaterDrop(spongeBtn, e);
+                    }, i * 50);
+                }
+                
+                // Add squeeze sound effect (optional)
+                this.playSqueezeSound();
+            });
+            
+            spongeBtn.addEventListener('mouseenter', () => {
+                // Add subtle bounce effect
+                spongeBtn.style.animation = 'spongeDeform 0.6s ease-in-out';
+            });
+            
+            spongeBtn.addEventListener('mouseleave', () => {
+                // Reset animation
+                spongeBtn.style.animation = '';
+            });
+        }
+    }
+    
+    createWaterDrop(button, event) {
+        const drop = document.createElement('div');
+        drop.style.cssText = `
+            position: absolute;
+            width: ${Math.random() * 6 + 4}px;
+            height: ${Math.random() * 6 + 4}px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(173, 216, 230, 0.6) 50%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+            animation: waterDrop 1.2s ease-out forwards;
+        `;
+        
+        // Position based on click or random
+        const rect = button.getBoundingClientRect();
+        let x, y;
+        
+        if (event) {
+            // Use click position
+            x = event.clientX - rect.left;
+            y = event.clientY - rect.top;
+        } else {
+            // Random position
+            x = Math.random() * rect.width;
+            y = Math.random() * rect.height;
+        }
+        
+        // Add some randomness to the position
+        x += (Math.random() - 0.5) * 20;
+        y += (Math.random() - 0.5) * 20;
+        
+        drop.style.left = x + 'px';
+        drop.style.top = y + 'px';
+        
+        const waterDrops = button.querySelector('.water-drops');
+        if (waterDrops) {
+            waterDrops.appendChild(drop);
+        } else {
+            button.appendChild(drop);
+        }
+        
+        setTimeout(() => {
+            drop.remove();
+        }, 1200);
+    }
+    
+    playSqueezeSound() {
+        // Create a simple squeeze sound using Web Audio API
+        try {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.setValueAtTime(200, audioContext.currentTime);
+            oscillator.frequency.exponentialRampToValueAtTime(50, audioContext.currentTime + 0.1);
+            
+            gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.1);
+        } catch (e) {
+            // Fallback if audio context is not available
+            console.log('Squeeze!');
+        }
     }
     
     addFloatingIconInteractions() {

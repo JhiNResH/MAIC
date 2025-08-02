@@ -217,6 +217,153 @@ body {
     transform: translateY(-3px);
 }
 
+/* Realistic Sponge Button Styles */
+.sponge-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #f4d03f 0%, #f39c12 50%, #e67e22 100%);
+    border: none;
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    transform-origin: center;
+    cursor: pointer;
+}
+
+.sponge-button:hover {
+    transform: scale(0.98) translateY(-1px);
+    box-shadow: 
+        0 6px 20px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+}
+
+.sponge-button:active {
+    transform: scale(0.92) translateY(1px);
+    box-shadow: 
+        0 2px 10px rgba(0, 0, 0, 0.4),
+        inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Sponge texture overlay */
+.sponge-texture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.3) 2px, transparent 2px),
+        radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+        radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.25) 1.5px, transparent 1.5px),
+        radial-gradient(circle at 90% 20%, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+        radial-gradient(circle at 10% 60%, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+        radial-gradient(circle at 70% 40%, rgba(255, 255, 255, 0.3) 1.5px, transparent 1.5px);
+    background-size: 20px 20px, 15px 15px, 25px 25px, 12px 12px, 18px 18px, 22px 22px;
+    opacity: 0.6;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.sponge-button:hover .sponge-texture {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+.sponge-button:active .sponge-texture {
+    opacity: 0.4;
+    transform: scale(0.95);
+}
+
+/* Squeeze effect */
+.squeeze-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.sponge-button:active .squeeze-effect {
+    opacity: 1;
+    transform: scale(1.2);
+    animation: spongeSqueeze 0.4s ease-out;
+}
+
+/* Water drops container */
+.water-drops {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: visible;
+}
+
+@keyframes spongeSqueeze {
+    0% { 
+        opacity: 0; 
+        transform: scale(0); 
+    }
+    50% { 
+        opacity: 0.8; 
+        transform: scale(1.1); 
+    }
+    100% { 
+        opacity: 0; 
+        transform: scale(1.2); 
+    }
+}
+
+/* Sponge deformation animation */
+@keyframes spongeDeform {
+    0% { 
+        transform: scale(1) skew(0deg, 0deg); 
+    }
+    50% { 
+        transform: scale(0.95) skew(2deg, 1deg); 
+    }
+    100% { 
+        transform: scale(1) skew(0deg, 0deg); 
+    }
+}
+
+.sponge-button:hover {
+    animation: spongeDeform 0.6s ease-in-out;
+}
+
+/* Realistic water drop animation */
+@keyframes waterDrop {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    25% {
+        transform: translateY(-15px) scale(1.1);
+        opacity: 0.9;
+    }
+    50% {
+        transform: translateY(-30px) scale(0.9);
+        opacity: 0.7;
+    }
+    75% {
+        transform: translateY(-45px) scale(0.7);
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateY(-60px) scale(0.3);
+        opacity: 0;
+    }
+}
+
 .btn-icon {
     font-size: 1.2rem;
     transition: transform 0.3s ease;
@@ -591,6 +738,19 @@ body {
         50% { 
             transform: translateY(-15px); 
         }
+    }
+    
+    /* Mobile sponge button adjustments */
+    .sponge-button {
+        transform: none;
+    }
+    
+    .sponge-button:hover {
+        transform: scale(0.98);
+    }
+    
+    .sponge-button:active {
+        transform: scale(0.95);
     }
 
     .hero-stats {
